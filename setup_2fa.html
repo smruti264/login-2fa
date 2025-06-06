@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setup 2FA</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Setup 2FA</h1>
+        <p>Scan this with Google Authenticator:</p>
+        <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+        <p>Or enter this secret manually: <code>{{ secret_key }}</code></p>
+        
+        <form action="{{ url_for('verify_2fa') }}" method="GET">
+            <button type="submit" class="continue-btn">
+                I've Scanned the QR - Continue to Verification
+            </button>
+        </form>
+    </div>
+</body>
+</html>
